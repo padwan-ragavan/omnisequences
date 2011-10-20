@@ -1,0 +1,153 @@
+body {
+    background-image: -moz-linear-gradient(center bottom, hsl(0, 0%, 70%) 5%, hsl(0, 0%, 80%) 50%, hsl(0, 0%, 70%) 95%);
+    background-repeat: repeat-y;
+    height: 100%;
+}
+
+.question {
+    font-size: 1.2em;
+    color: white;
+    text-shadow: 1px 1px 1px hsl(240, 70%, 20%);
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 3px;
+    background: hsla(0, 0%, 0%, 0.2);
+}
+
+.helpContent:first-letter {
+    font-weight: bolder;
+    font-size: 1.5em;
+}
+
+.helpContent {
+    background: white;
+    border-radius: 5px;
+    padding: 5px;
+    line-height: 24px;
+    box-shadow: 0px 0px 3px;
+    margin-bottom: 5px;
+    width: 99%;
+    height: auto;
+    position: relative;
+    left: 10px;
+}
+
+.steps {
+    counter-reset: stepCounter;
+}
+
+.step {
+    -moz-transition: all 1s;
+    transition: all 1s;
+}
+
+.step:before {
+    counter-increment: stepCounter;
+    content: counter(stepCounter);
+    text-shadow: 1px 1px 1px;
+}
+
+.step:hover {
+    border-radius: 3px;
+    box-shadow: 0px 0px 3px black;
+}
+
+.listStyleNone {
+    list-style: none;
+}
+
+.omnisequenceInFocus {
+    background: none repeat scroll 0 0 transparent !important;
+    border-color: #FFFFFF !important;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 0 6px #6FA1D9;
+}
+
+#backButton {
+    background-color: hsla(120, 30%, 50%, 0.7);
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0px 0px 3px #00FF00;
+    position: fixed;
+    cursor: default;
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    z-index: 4;
+    top: 50%;
+    color: white;
+    right: 2px;
+}
+
+#backButton:hover {
+    background-color: hsla(120, 40%, 45%, 0.9);
+    box-shadow: 0px 0px 3px #FFFFFF;
+}
+
+#backButton:active {
+    background-color: hsla(120, 40%, 45%, 0.9);
+    box-shadow: 0px 0px 3px #FFFFFF inset;
+}
+
+.clearFloat {
+    float: none;
+    clear: both;
+}
+
+.blackButton {
+    background-color: hsl(0,0%, 50%);
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 1px 1px 3px #000000;
+    cursor: default;
+    padding: 6px;
+    text-align: center;
+    color: white;
+    float: left;
+}
+
+.blackButton:hover {
+    background-color: hsl(0,0%, 40%);
+}
+
+.blackButton:active {
+    background-color: hsl(0,0%, 40%);
+    box-shadow: 1px 1px 3px #000000 inset;
+}
+
+.startPosition{
+    position: relative;
+    left: 0;
+    -moz-transition:all 1s ease 0s;
+}
+
+.overAddSequenceButton{
+    top: -80px;
+    left: -390px;
+}
+
+.overAddFunctionButton{
+    top: 8px;
+    left: -60px;
+}
+
+.overAddPatternButton{
+    top: 8px;
+    left: -30px;
+}
+
+.overAddPatternField{
+    top: 8px;
+    left: -360px;
+}
+
+.blueButtonActive {
+    background-color: #2575CF;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) inset;
+}
+
+.helpFieldFocus{
+    box-shadow: 0 0 4px 0 #000000;
+}
+
+.helpFunctionDefinitionFocus {
+    height: 120px;
+}

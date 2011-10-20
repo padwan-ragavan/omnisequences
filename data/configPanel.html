@@ -1,0 +1,59 @@
+<html>
+<head>
+    <link href="css/configPanel.css" rel="stylesheet"/>
+    <script type="text/javascript">
+        window.onload = function() {
+            var validEntryPoint = document.getElementById("validEntryPoint").value;
+            if (validEntryPoint == "false") {
+                document.getElementsByTagName("body")[0].innerHTML = "right click the widget in the addon panel for options";
+            }
+        };
+    </script>
+</head>
+<body>
+<div id="omnishortcutTemplate">
+    <input type="text" class="key1" size="1" maxlength="1"/>
+    <input type="text" class="key2" size="1" maxlength="1"/>
+    <input type="text" class="matchers"/>
+    <select class="shortcutFunction"></select>
+    <input type="checkbox" class="cache" checked/>
+</div>
+<div id="functionTemplate">
+    <input type="text" class="functionName"/>
+    <textarea type="text" class="functionDefinition">function(matches){
+
+        }</textarea>
+</div>
+<div id="rulesContainerTemplate">
+    <input type="text" class="ruleName" placeholder="Rule Set Name"/>
+
+    <div class="heading">
+        <span>key 1</span><span>key 2</span><span>matchers</span><span>function</span><span>cache</span></div>
+    <div class="omnishortcutList"></div>
+    <input type="button" value="Add Sequence" class="addNewSequence blueButton"/>
+
+    <div class="applyToContainer"></div>
+    <div class="dontApplyToContainer"></div>
+    <input type="text" placeholder="url pattern" class="urlPattern"/>
+    <select>
+        <option value=".applyToContainer">Apply To</option>
+        <option value=".dontApplyToContainer">Dont Apply To</option>
+    </select>
+    <input type="button" class="addUrlPattern blueButton" value="add url pattern"/>
+</div>
+<input id="validEntryPoint" type="hidden" value="false"/>
+
+<div class="functionsContainer">
+    <div class="heading"><span>function-Name</span><span>function-definition</span></div>
+    <div id="functionList"></div>
+    <input type="button" value="Add Function" id="addNewFunction" class="blueButton"/>
+</div>
+<div class="helpButton">?</div>
+<div class="restoreDefault">restore defaults</div>
+<div id="ruleSetContainer"></div>
+
+<input type="button" value="add New Rule Set" class="blueButton addNewRuleSet" id="addNewRuleSet"/>
+<input type="button" value="save" class="blueButton exitButton" id="save"/>
+<input type="button" value="exit" class="blueButton exitButton" id="exit"/>
+</body>
+</html>

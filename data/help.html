@@ -1,0 +1,441 @@
+<html>
+<head>
+    <link href="css/configPanel.css" rel="stylesheet"/>
+    <link href="css/help.css" rel="stylesheet"/>
+    <script type="text/javascript">
+        window.onload = function() {
+            var validEntryPoint = document.getElementById("validEntryPoint").value;
+            if (validEntryPoint == "false") {
+                document.getElementsByTagName("body")[0].innerHTML = "right click the widget in the addon panel for options";
+            }
+        };
+    </script>
+</head>
+<body>
+<div id="omnishortcutTemplate">
+    <input type="text" class="key1" size="1" maxlength="1"/>
+    <input type="text" class="key2" size="1" maxlength="1"/>
+    <input type="text" class="matchers"/>
+    <select class="shortcutFunction"></select>
+</div>
+<div id="functionTemplate">
+    <input type="text" class="functionName"/>
+    <textarea type="text" class="functionDefinition">function(matches){
+
+        }</textarea>
+</div>
+<div id="rulesContainerTemplate">
+    <input type="text" class="ruleName" placeholder="Rule Set Name"/>
+
+    <div class="heading">
+        <span>key 1</span><span>key 2</span><span>matchers</span><span>function</span><span>cache</span></div>
+    <div class="omnishortcutList"></div>
+    <input type="button" value="Add Sequence" class="addNewSequence blueButton"/>
+
+    <div class="applyToContainer"></div>
+    <div class="dontApplyToContainer"></div>
+    <input type="text" placeholder="url pattern" class="urlPattern"/>
+    <select class="shortcutFunction">
+        <option value=".applyToContainer">Apply To</option>
+        <option value=".dontApplyToContainer">Dont Apply To</option>
+    </select>
+    <input type="button" class="addUrlPattern blueButton" value="add url pattern"/>
+</div>
+<input id="validEntryPoint" type="hidden" value="false"/>
+
+<div id="backButton">back</div>
+<div class="question">
+    what are omnisequences?
+</div>
+<div class="helpContent">
+    Omnisequences are keyboard sequences which you can customize. Are you one of those who type 'gi' and expect to be
+    taken to home page of a site or press 'j', 'k' to navigate
+    between the posts ? If 'yes' this addon is for you, you can skip to next section. Did you say 'no'? dont worry you
+    are about to find out
+    an awesome way to navigate web sites using keyboard without mouse. Keyboard sequences are different from keyboard
+    shortcuts, lets take
+    keyboard sequence 'gi', you type it by typing the first key 'g' followed by second key 'i', the catch is no need to
+    hold key 'g' while typing the key 'i'.
+    can there single key keyboard sequences? yes. you can even have a keyboard sequence 'o' to open the current
+    post/link you are in.
+    This is inspired by google shortcuts.
+</div>
+<div class="question">
+    What can I do with omnisequences?
+</div>
+<div class="helpContent">
+    You can sequence anything that you can do manually in a website. Examples would be you can have a sequence to
+    <span class="listStyleNone">
+        <li><b>navigate within the dom </b> on identifiers - j,k,n,p</li>
+        <li><b>navigate across a site</b>, go one level up, go to home page - u,gi</li>
+        <li>jump across sites, open new tab</li>
+        <li>jump to a particular post based on id - you can have <b>a prompt inside the function to get input from
+            user</b>.
+        </li>
+        <li><b>attach new elements/styles/scripts to a page </b>- you can attach jquery on the fly to a page.</li>
+        <li>let your imagination rule the world :)</li>
+    </span>
+</div>
+<div class="question">
+    When are the keys captured for sequence ?
+</div>
+<div class="helpContent">
+    The keys are captured for sequence when any input/texfied is <b>not</b> in focus. You can press <i>Esc</i> key to
+    blur / come out of input/textfield in focus.
+    <i>Esc</i> key can also be pressed to reset the keys captured for sequence. Say you have entered 'g' but want to
+    type 'u', you can press <i>Esc</i> key to clear the keys captured for sequence. You can see the keys being captured
+    in the addons bar.
+</div>
+<div class="question">
+    Where is the config panel ?
+</div>
+<div class="helpContent">
+    Config panel is accessible through the widget in the Add-on Bar. To view addons bar press 'Ctrl + /' or View->Toolbars->Add-on Bar.
+</div>
+<div class="question">
+    How do i create a keyboard sequence ?
+</div>
+<div class="helpContent">
+    <div>
+        <div class="rulesContainer" id="addSequenceDemo">
+            <input type="text" class="ruleName" placeholder="Rule Set Name"/>
+
+            <div class="heading"><span>key 1</span><span>key 2</span><span>matchers</span><span>function</span><span>cache</span>
+            </div>
+            <div class="omnishortcutList">
+                <div id="createSequenceDemoSequence">
+                    <input type="text" class="key1" size="1" maxlength="1"/>
+                    <input type="text" class="key2" size="1" maxlength="1"/>
+                    <input type="text" class="matchers"/>
+                    <select class="shortcutFunction">
+                        <option>goToHomePage</option>
+                        <option>goToNextMatch</option>
+                        <option>goToPreviousMatch</option>
+                        <option>open</option>
+                    </select>
+                    <input type="checkbox" class="cache"/>
+                </div>
+            </div>
+            <input type="button" value="Add Sequence" class="addNewSequence blueButton" id="createSequenceDemoButton"/>
+
+            <div class="applyToContainer"></div>
+            <div class="dontApplyToContainer"></div>
+            <input type="text" placeholder="url pattern" class="urlPattern"/>
+            <select class="shortcutFunction">
+                <option value=".applyToContainer">Apply To</option>
+                <option value=".dontApplyToContainer">Dont Apply To</option>
+            </select>
+            <input type="button" class="addUrlPattern blueButton" value="add url pattern"/>
+            <img src="images/mousePointer.png" class="startPosition" id="createSequenceDemoPointer"/>
+        </div>
+        <div class="steps">
+            <div class="step">
+                click on <input type="button" value="Add Sequence" class="blueButton"/>
+            </div>
+            <div class="step">
+                Enter key 1 for the sequence, the focus automatically moves to key 2 after you enter key 1.
+            </div>
+            <div class="step">
+                Enter key 2 for the sequence (optional), the focus automatically moves to key 2 after you enter key 1.
+            </div>
+            <div class="step">
+                Enter the matchers for the elements to iterate (optional).
+            </div>
+            <div class="step">
+                Select one of the fuctions.
+            </div>
+        </div>
+        <div class="blackButton" id="createSequence"> demo</div>
+    </div>
+    <div class="clearFloat"></div>
+</div>
+<div class="question">
+    What are matchers ?
+</div>
+<div class="helpContent">
+    Matchers are comma seperated list of selectors. For example,<i><b> #search,#q,.searchField,.find,div</b></i> -
+    matches element with id "search" or "q" or with class "searchField" or "find", all divs.
+    Visit <a href="http://api.jquery.com/category/selectors/">http://api.jquery.com/category/selectors/</a> for more
+    details on selectors. The matching elements are passed as the argument to function thus enabling the reuse of
+    functions.
+</div>
+<div class="question">
+    What is a function ?
+</div>
+<div class="helpContent">
+    Function is the one that is invoked with matchers elements as argument when the key sequence is presesed. You can
+    select on of the existing fuctions or create your own function.
+</div>
+<div class="question">
+    How to create a custom function ?
+</div>
+<div class="helpContent">
+    <div class="functionsContainer" id="addFunctionDemo">
+        <div class="heading"><span>function-Name</span><span>function-definition</span></div>
+        <div class="functionList">
+            <div>
+                <input type="text" class="functionName"/>
+                <textarea type="text" class="functionDefinition">function(matches){
+                    }
+                </textarea>
+            </div>
+        </div>
+        <input type="button" value="Add Function" class="blueButton"/>
+        <img src="images/mousePointer.png" class="startPosition" id="createFunctionDemoPointer"/>
+    </div>
+    <div class="steps">
+        <div class="step">
+            click on <input type="button" value="Add Function" class="blueButton"/>
+        </div>
+        <div class="step">
+            Enter the fuction name, the function will be available in the drop down after this.
+        </div>
+        <div class="step">
+            Update the function template to do what you want. The matches is the jquery resut of <i>$(matchers)</i>
+        </div>
+    </div>
+    <div class="blackButton" id="createFunction"> demo</div>
+    <div class="clearFloat"></div>
+</div>
+<div class="question">
+    What are 'Apply to' and 'Dont Apply To'? Or how to filter the rules ?
+</div>
+<div class="helpContent">
+    Rules can filtered (filter the site to which they apply to) by combination of <i>Apply To</i> and <i>Dont Apply
+    To</i> patterns. There can be mutiple <i>Apply To</i> and <i>Dont Apply To</i> patterns. The rules are applied if
+    they match <b>atleast one</b> pattern in <i>Apply To</i> set and <b>dont match any </b>pattern in <i>Dont Apply
+    To</i>.
+</div>
+<div class="question">
+    How to create a pattern ?
+</div>
+<div class="helpContent">
+    <div class="rulesContainer" id="addPatternDemo">
+        <input type="text" class="ruleName" placeholder="Rule Set Name"/>
+
+        <div class="heading">
+            <span>key 1</span><span>key 2</span><span>matchers</span><span>function</span><span>cache</span></div>
+        <div class="omnishortcutList">
+            <div>
+                <input type="text" class="key1" size="1" maxlength="1"/>
+                <input type="text" class="key2" size="1" maxlength="1"/>
+                <input type="text" class="matchers"/>
+                <select class="shortcutFunction">
+                    <option>goToHomePage</option>
+                    <option>goToNextMatch</option>
+                    <option>goToPreviousMatch</option>
+                    <option>open</option>
+                </select>
+                <input type="checkbox" class="cache"/>
+            </div>
+        </div>
+        <input type="button" value="Add Sequence" class="addNewSequence blueButton"/>
+
+        <div class="applyToContainer"></div>
+        <div class="dontApplyToContainer"></div>
+        <input type="text" placeholder="url pattern" class="urlPattern"/>
+        <select class="shortcutFunction">
+            <option value=".applyToContainer">Apply To</option>
+            <option value=".dontApplyToContainer">Dont Apply To</option>
+        </select>
+        <input type="button" class="addUrlPattern blueButton" value="add url pattern"/>
+        <img src="images/mousePointer.png" class="startPosition" id="createPatternDemoPointer"/>
+    </div>
+    <div class="steps">
+        <div class="step">
+            Enter the pattern in <input type="text" placeholder="url pattern" class="urlPattern"
+                                        style="box-shadow: 0px 0px 0px 1px black;"/>
+        </div>
+        <div class="step">
+            Select the type of filter 'Apply To' or 'Dont Apply To' from the drop down. <select>
+            <option value=".applyToContainer">Apply To</option>
+            <option value=".dontApplyToContainer">Dont Apply To</option>
+        </select>
+        </div>
+        <div class="step">
+            Click on <input type="button" class="addUrlPattern blueButton" value="add url pattern"/>
+        </div>
+    </div>
+    <div class="blackButton" id="createPattern"> demo</div>
+    <div class="clearFloat"></div>
+</div>
+<div class="question">
+    What is a pattern ?
+</div>
+<div class="helpContent">
+    Pattern is a sequence of characters possibly with wild card to be compared againt a url.<br/><i>*worpress.com*</i>,
+    <i>http://*</i> are examples of pattern. <i>*</i> matches anything.<br/>
+    *wordpress.com will match http://jsrulestheworld.wordpress.com, https://securejsrulestheworld.wordpress.com but <b>not</b>
+    http://jsrulestheworld.wordpress.com<b>/</b> or http://jsrulestheworld.wordpress.com<b>/page1</b><br/>
+    Empty Apply To pattern defaults to *.
+</div>
+<div class="question">
+    What are rule sets and why we need them?
+</div>
+<div class="helpContent">
+    Rules sets are set of rules, with their own keyboard sequences, filter patterns. To add rule set click on <input
+        type="button" value="add New Rule Set" class="blueButton addNewRuleSet"/>. They can be used to<br/>
+    group keyboard sequences of a type together, override certain keyboard shortcut for a site/collection of sites.
+</div>
+<div class="question">
+    How to override the keyboard sequence for a particular page/site?
+</div>
+<div class="helpContent">
+    <div class="rulesContainer" id="overPatternDemo1">
+        <input type="text" class="ruleName" placeholder="Rule Set Name" value="rule set one"/>
+
+        <div class="heading">
+            <span>key 1</span><span>key 2</span><span>matchers</span><span>function</span><span>cache</span></div>
+        <div class="omnishortcutList">
+            <div>
+                <input type="text" class="key1" size="1" maxlength="1" value="g"/>
+                <input type="text" class="key2" size="1" maxlength="1" value="i"/>
+                <input type="text" class="matchers"/>
+                <select class="shortcutFunction">
+                    <option>goToHomePage</option>
+                    <option>goToNextMatch</option>
+                    <option>goToPreviousMatch</option>
+                    <option>open</option>
+                    <option>goOneLevelUp</option>
+                    <option>updateCurrentPage</option>
+                </select>
+                <input type="checkbox" class="cache"/>
+            </div>
+            <div>
+                <input type="text" class="key1" size="1" maxlength="1" value="j"/>
+                <input type="text" class="key2" size="1" maxlength="1"/>
+                <input type="text" class="matchers"/>
+                <select class="shortcutFunction">
+                    <option>goToHomePage</option>
+                    <option selected="selected">goToNextMatch</option>
+                    <option>goToPreviousMatch</option>
+                    <option>open</option>
+                    <option>goOneLevelUp</option>
+                    <option>updateCurrentPage</option>
+                </select>
+                <input type="checkbox" class="cache"/>
+            </div>
+            <div>
+                <input type="text" class="key1" size="1" maxlength="1" value="u"/>
+                <input type="text" class="key2" size="1" maxlength="1"/>
+                <input type="text" class="matchers"/>
+                <select class="shortcutFunction">
+                    <option>goToHomePage</option>
+                    <option>goToNextMatch</option>
+                    <option>goToPreviousMatch</option>
+                    <option>open</option>
+                    <option>updateCurrentPage</option>
+                    <option selected="selected">goOneLevelUp</option>
+                </select>
+                <input type="checkbox" class="cache"/>
+            </div>
+        </div>
+        <input type="button" value="Add Sequence" class="addNewSequence blueButton"/>
+
+        <div class="applyToContainer">
+            <input class="urlPatternField" value="*addons.mozilla.com*"/>
+            <input class="urlPatternField" value="*.wordpres.com*"/>
+        </div>
+        <div class="dontApplyToContainer">
+            <input class="urlPatternField" value="*.google.com*"/>
+        </div>
+        <input type="text" placeholder="url pattern" class="urlPattern"/>
+        <select class="shortcutFunction">
+            <option value=".applyToContainer">Apply To</option>
+            <option value=".dontApplyToContainer">Dont Apply To</option>
+        </select>
+        <input type="button" class="addUrlPattern blueButton" value="add url pattern"/>
+    </div>
+    <div class="rulesContainer" id="overPatternDemo2">
+        <input type="text" class="ruleName" placeholder="Rule Set Name" value="override u"/>
+
+        <div class="heading">
+            <span>key 1</span><span>key 2</span><span>matchers</span><span>function</span><span>cache</span></div>
+        <div class="omnishortcutList">
+            <div>
+                <input type="text" class="key1" size="1" maxlength="1" value="u"/>
+                <input type="text" class="key2" size="1" maxlength="1"/>
+                <input type="text" class="matchers"/>
+                <select class="shortcutFunction">
+                    <option>goToHomePage</option>
+                    <option>goToNextMatch</option>
+                    <option>goToPreviousMatch</option>
+                    <option>open</option>
+                    <option selected="selected">updateCurrentPage</option>
+                    <option>goOneLevelUp</option>
+                </select>
+                <input type="checkbox" class="cache"/>
+            </div>
+        </div>
+        <input type="button" value="Add Sequence" class="addNewSequence blueButton"/>
+
+        <div class="applyToContainer">
+            <input class="urlPatternField" value="*addons.mozilla.com/latestUpdates*"/>
+        </div>
+        <div class="dontApplyToContainer">
+            <input class="urlPatternField" value="*.google.com*"/>
+        </div>
+        <input type="text" placeholder="url pattern" class="urlPattern"/>
+        <select class="shortcutFunction">
+            <option value=".applyToContainer">Apply To</option>
+            <option value=".dontApplyToContainer">Dont Apply To</option>
+        </select>
+        <input type="button" class="addUrlPattern blueButton" value="add url pattern"/>
+    </div>
+    Keyboard sequence can be overridden by creating a rule set with an <i>Apply To</i> pattern that is longer that the
+    previous <i>Apply To</i> patterns.<br/>
+    When the user visits http://addons.mozilla.com/<b>someNotOverriddenPage</b> the keyboard sequences in the page will
+    be<br/>
+        <span class="listStyleNone">
+              <li>gi - goToHomePage</li>
+              <li>j - goToNextMatch</li>
+              <li>u - <b>goOneLevelUp</b></li>
+        </span>
+    but when the user visits http://addons.mozilla.com/<b>latestUpdates</b> the keyboard sequence in the page will be
+    <span class="listStyleNone">
+              <li>gi - goToHomePage</li>
+              <li>j - goToNextMatch</li>
+              <li>u - <b>updateCurrentPage</b></li>
+    </span>
+    Notice how http://addons.mozilla.com/<b>latestUpdates</b> gets 'gi', 'j' as is from 'rule set one' but 'u' is
+    overriden by definition in 'override u'.
+    <div class="clearFloat"></div>
+</div>
+<div class="functionsContainer" style="display: none;">
+    <div class="heading"><span>function-Name</span><span>function-definition</span></div>
+    <div id="functionList">
+        <div>
+            <input type="text" class="functionName" value="goToHomePage"/>
+            <textarea type="text" class="functionDefinition"></textarea>
+        </div>
+        <div>
+            <input type="text" class="functionName" value="goToNextMatch"/>
+            <textarea type="text" class="functionDefinition"></textarea>
+        </div>
+        <div>
+            <input type="text" class="functionName" value="goToPreviousMatch"/>
+            <textarea type="text" class="functionDefinition"></textarea>
+        </div>
+        <div>
+            <input type="text" class="functionName" value="open"/>
+            <textarea type="text" class="functionDefinition"></textarea>
+        </div>
+        <div>
+            <input type="text" class="functionName" value="updateCurrentPage"/>
+            <textarea type="text" class="functionDefinition"></textarea>
+        </div>
+        <div>
+            <input type="text" class="functionName" value="goOneLevelUp"/>
+            <textarea type="text" class="functionDefinition"></textarea>
+        </div>
+    </div>
+    <input type="button" value="Add Function" id="addNewFunction" class="blueButton"/>
+</div>
+<div class="question">
+    How can i see the list of sequences active in a particular page ?
+</div>
+<div class="helpContent">
+    You can press the <i>s</i><i>h</i> keys to see the list of sequences active in the current page.
+</div>
+</body>
+</html>

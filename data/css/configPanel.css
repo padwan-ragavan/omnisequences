@@ -1,0 +1,259 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#omnishortcutTemplate, #functionTemplate, #rulesContainerTemplate {
+    display: none;
+}
+
+.heading span {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 1px 2px #000000;
+    margin-left: 8px;
+}
+
+.heading span:nth-child(4n) {
+    margin-left: 132px;
+}
+
+.heading span:nth-child(5n) {
+    margin-left: 96px;
+}
+
+.functionsContainer .heading span:nth-child(n+2) {
+    margin-left: 48px;
+}
+
+.rulesContainer {
+    background-color: hsl(216, 100%, 82%);
+    border-radius: 3px;
+    box-shadow: 0 2px 7px 1px hsla(0, 0%, 0%, 0.4);
+    width: 520px;
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.shortcutFunction {
+    width: 150px;
+}
+
+.functionsContainer {
+    background-color: hsl(216, 100%, 82%);
+    border-radius: 3px;
+    box-shadow: 0 2px 7px 1px hsla(0, 0%, 0%, 0.4);
+    width: 500px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+.omnishortcutList div input, #functionList div input, #functionList div textarea, .urlPattern {
+    margin-left: 7px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 1px;
+    margin-top: 3px;
+}
+
+.matchers {
+    width: 200px;
+}
+
+body {
+    background-image: -moz-linear-gradient(center bottom, hsl(0, 0%, 70%) 5%, hsl(0, 0%, 80%) 50%, hsl(0, 0%, 70%) 95%);
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+.blueButton {
+    background-color: #2981E4;
+    border: medium none;
+    font-weight: bold;
+    color: hsl(0, 0%, 100%);
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 6px 6px 6px 6px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    position: relative;
+    padding: 3px 5px;
+    margin: 5px;
+}
+
+input:focus {
+    box-shadow: 0 0 4px 0 #000000;
+}
+
+.blueButton:hover {
+    background-color: #2575CF;
+}
+
+.blueButton:active {
+    background-color: #2575CF;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) inset;
+}
+
+.exitButton {
+    position: fixed;
+    bottom: 3%;
+    width: 70px;
+}
+
+#save {
+    right: 85px;
+}
+
+#exit {
+    right: 4px;
+}
+
+.functionDefinition {
+    height: 66px;
+    width: 325px;
+    word-wrap: break-word;
+}
+
+.functionDefinition:active {
+    height: 120px;
+}
+
+.functionDefinition:focus {
+    height: 120px;
+    box-shadow: 0 0 4px 0 #000000;
+}
+
+.ruleName {
+    border: none;
+    background-color: hsl(216, 100%, 82%);
+    color: white;
+    text-shadow: 0 1px 2px #000000;
+    margin-left: 7px;
+}
+
+.ruleName:focus {
+    box-shadow: none;
+    border: 1px solid hsla(0, 0%, 0%, 0.2);
+}
+
+.applyToContainer {
+    margin-left: 110px;
+    min-height: 20px;
+    top: 20px;
+    position: relative;
+}
+
+.dontApplyToContainer {
+    margin-left: 110px;
+    margin-bottom: 10px;
+    min-height: 20px;
+    top: 20px;
+    position: relative;
+}
+
+.applyToContainer:after {
+    content: 'Apply To: ';
+    margin-left: 7px;
+    color: white;
+    text-shadow: 0 1px 2px #000000;
+    font-weight: bold;
+    font-size: small;
+    position: relative;
+    left: -110px;
+    top: -20px;
+
+}
+
+.dontApplyToContainer:after {
+    content: 'Dont Apply To: ';
+    margin-left: 7px;
+    color: white;
+    text-shadow: 0 1px 2px #000000;
+    font-weight: bold;
+    font-size: small;
+    position: relative;
+    left: -110px;
+    top: -20px;
+}
+
+.urlPatternField {
+    width: 370px;
+}
+
+#addNewRuleSet {
+    position: fixed;
+    bottom: 7%;
+    right: 1%;
+}
+
+.deleteUrlButton {
+    color: white;
+    background-color: hsl(0, 50%, 60%);
+    border: medium none;
+    font-size: smaller;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    width: 4px;
+    margin: 1px;
+    margin-left: 3px;
+}
+
+.deleteUrlButton:hover {
+    background-color: hsl(0, 80%, 60%);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) inset;
+}
+
+.helpButton {
+    box-shadow: 0 0px 3px rgba(0, 0, 0, 0.6);
+    border-radius: 30px;
+    background-color: hsl(180,30%,40%);
+    text-shadow: 0 0px 3px hsl(120, 20%, 90%);
+    cursor: default;
+    height: 30px;
+    width: 30px;
+    padding: 15px;
+    position: fixed;
+    top: 5%;
+    right: 2%;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+}
+
+.helpButton:hover {
+    background-color: hsl(180,40%,30%);
+}
+
+.helpButton:active {
+    background-color: hsl(180,40%,30%);
+    box-shadow: 0 0px 3px rgba(0, 0, 0, 0.6) inset;
+}
+
+.restoreDefault {
+    background-color: hsl(180,30%,40%);
+    border: medium none;
+    font-weight: bold;
+    color: hsl(0, 0%, 100%);
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 6px 6px 6px 6px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 20%;
+    right: 0%;
+    padding: 5px 10px;
+    cursor: default;
+    margin: 5px;
+}
+
+.restoreDefault:hover {
+    background-color: hsl(180,40%,30%);
+}
+
+.restoreDefault:active {
+    background-color: hsl(180,40%,30%);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) inset;
+}
