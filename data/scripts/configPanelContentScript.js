@@ -1,6 +1,7 @@
 var validEntryPoint = true;
 var showShortcuts = function(omniShorcutsData) {
     reset();
+    var shortcutsFromAllRules = [];
     var rules = omniShorcutsData.rules;
     for (var ruleIndex in rules) {
         var rule = rules[ruleIndex];
@@ -11,6 +12,7 @@ var showShortcuts = function(omniShorcutsData) {
         var shorcutList = $(".omnishortcutList", newRuleContainer);
         for (var index in shortcuts) {
             var shortcut = shortcuts[index];
+            shortcutsFromAllRules.push(shortcut);
             var newShortcutContainer = $('#omnishortcutTemplate').clone();
             newShortcutContainer.removeAttr("id");
             $(".key1", newShortcutContainer).val(shortcut.key1);
@@ -39,8 +41,8 @@ var showShortcuts = function(omniShorcutsData) {
         $("#functionList").append(newFunctionContainer);
         validFunctionNames.push(functionName);
     }
-    if (shortcuts != null) {
-        var selectedShortcutFunctionNames = $.map(shortcuts, function(shortcut) {
+    if (shortcutsFromAllRules != null) {
+        var selectedShortcutFunctionNames = $.map(shortcutsFromAllRules, function(shortcut) {
             return shortcut.shortcutFunction;
         });
         updateFunctionNamesInSelect(selectedShortcutFunctionNames, validFunctionNames);
