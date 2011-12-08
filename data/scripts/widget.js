@@ -17,5 +17,5 @@ self.port.on('keys-captured', function(keysCaptured) {
 });
 
 self.port.on('dirIO.test', function(path){
-    alert(path);
+    console.log(path);
 });
