@@ -15,7 +15,3 @@ self.port.on('keys-captured', function(keysCaptured) {
     if (/\w+/.test(keysCaptured) || keysCaptured.length==0)
         document.getElementById("keysCaptured").innerHTML = keysCaptured;
 });
-
-self.port.on('dirIO.test', function(path){
-    console.log(path);
-});
