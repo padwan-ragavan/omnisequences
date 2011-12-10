@@ -2,7 +2,6 @@ const ESCAPE_KEYCODE = 27;
 var shortcutsMap = {};
 var functionData;
 var keysPressed = '';
-var functionScopeEncapsulator = {};
 
 const omniSequenceCustomStyle = '<style type="text/css">' +
         '.omniSequenceInFocus {' +
@@ -57,14 +56,12 @@ var keydownListener = function(event) {
         if (shortcutsMap[keysPressed]) {
             try {
                 var shortcutData = shortcutsMap[keysPressed];
-                if (functionScopeEncapsulator[shortcutData.shortcutFunction] == null)
-                    eval('{functionScopeEncapsulator["' + shortcutData.shortcutFunction + '"] = ' + functionData[shortcutData.shortcutFunction] + '}');
                 var cachedMatchers = shortcutData.cachedMatchers;
                 if (cachedMatchers == null || !shortcutData.cache) {
                     shortcutData.cachedMatchers = $(shortcutData.matchers);
                     cachedMatchers = shortcutData.cachedMatchers;
                 }
-                functionScopeEncapsulator[shortcutData.shortcutFunction](cachedMatchers);
+                omniSequencesFunctions[shortcutData.shortcutFunction](cachedMatchers);
             } catch(e) {
                 console.log(e);
             }
