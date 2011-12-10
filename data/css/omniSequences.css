@@ -15,7 +15,8 @@
     left: 1%;
     font-size: 16px;
     display: none;
-    z-index: 999
+    z-index: 999;
+    width:70%;
 }
 
 .omniSequenceHelpHeading {
@@ -26,22 +27,61 @@
     font-size: 1.2em;
 }
 
-.omniSequenceHelpHeading span {
+.omniSequenceHelpHeading > div {
+    float: left;
     margin: 5px;
-    padding: 5px;
+    padding: 3px;
 }
 
-.omniSeqenceHelpList div span {
+.omniSequenceHelpHeading > div:nth-child(3n) {
+    float: right;
+    margin-left: 30px;
+
+}
+
+.omniSequenceHelpHeading > div:nth-child(4n) {
+    clear: both;
+    float: none;
+    margin: 0px;
+    padding:0px;
+    background-color: blue;
+}
+
+.omniSequenceHelpHeading{
+    float: none;
+    clear: both;
+}
+
+.omniSeqenceHelpList div div {
+    text-align: left;
     margin: 10px;
-    padding: 5px;
+    padding: 2px;
 }
 
-.omniSeqenceHelpList div:nth-child(2n) {
+.omniSeqenceHelpList div div:nth-child(4n + 1) {
+    float: left;
+    text-align: center !important;
+    width: 50px;
+}
+
+.omniSeqenceHelpList div div:nth-child(4n + 2) {
+    float: left;
+    padding-left: 50px;
+}
+
+.omniSeqenceHelpList div div:nth-child(4n+3) {
+    float: right;
+}
+
+.omniSeqenceHelpList div div:nth-child(4n) {
+    float: none;
+    clear: both;
+    margin: 0px;
+    padding: 0px;
+}
+
+.omniSeqenceHelpList > div:nth-child(2n - 1) {
     background-color: hsla(0, 0%, 70%, 0.9);
-    border-radius: 5px 5px 5px 5px;
+    /*border-radius: 10px 10px 10px 10px;*/
     color: hsl(0, 0%, 0%);
 }
-
-/**
-    based on api.jquery focus classes.
-*/

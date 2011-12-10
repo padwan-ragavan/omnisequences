@@ -44,9 +44,10 @@ var bindSequences = function(omniSequences) {
     if (!functionData || !rules) return;
 
     var omniSequencesHelpHeading = $("<div>", {class:"omniSequenceHelpHeading"})
-            .append($("<span>").text("Sequence"))
-            .append($("<span>").text("Function"))
-            .append($("<span>").text("Matchers"));
+            .append($("<div>").text("Sequence"))
+            .append($("<div>").text("Function"))
+            .append($("<div>").text("Matchers"))
+            .append($("<div>"));
     var omniSequenceHelpList = $("<div>", {class:"omniSeqenceHelpList"})
     var omniSequenceHelpDiv = $("<div>", {class:"omniSequenceHelp"})
             .append(omniSequencesHelpHeading)
@@ -72,9 +73,10 @@ var bindSequences = function(omniSequences) {
 
     $.each(shortcutsMap, function(shortcutKey, shortcut) {
         var omniSequenceHelpItem = $("<div>")
-                .append($("<span>").text(shortcutKey))
-                .append($("<span>").text(shortcut.shortcutFunction))
-                .append($("<span>").text(shortcut.matchers))
+                .append($("<div>").text(shortcutKey))
+                .append($("<div>").text(shortcut.shortcutFunction))
+                .append($("<div>").text(shortcut.matchers))
+                .append($("<div>"));
         omniSequenceHelpList.append(omniSequenceHelpItem);
     });
 
