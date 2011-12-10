@@ -3,47 +3,6 @@ var shortcutsMap = {};
 var functionData;
 var keysPressed = '';
 
-const omniSequenceCustomStyle = '<style type="text/css">' +
-        '.omniSequenceInFocus {' +
-        '    border-color: #FFFFFF !important;' +
-        '    border-radius: 3px 3px 3px 3px;' +
-        '    box-shadow: 0 0 6px #000000;' +
-        '}\r\n' +
-        '.omniSequenceHelp {' +
-        'background-color: hsla(0, 0%, 0%, 0.9);' +
-        'border-radius: 5px 5px 5px 5px;' +
-        'color: hsl(120,50%,60%);' +
-        'font-weight: bolder;' +
-        'box-shadow: 0 0 6px hsl(0,0%,80%),0 0 5px 1024px hsla(0,0%,0%,0.6);' +
-        'position: fixed;' +
-        'top: 2%;' +
-        'left:1%;' +
-        'font-size: 16px;' +
-        'display:none;' +
-        'z-index:999' +
-        '}\r\n' +
-        '.omniSequenceHelpHeading{' +
-        'color: white;' +
-        'text-shadow: 1px 1px 1px hsl(240, 70%, 20%);' +
-        'margin-bottom: 5px;' +
-        'padding: 5px;' +
-        'font-size: 1.2em;' +
-        '}\r\n' +
-        '.omniSequenceHelpHeading span{' +
-        'margin:5px;' +
-        'padding: 5px;' +
-        '}\r\n' +
-        '.omniSeqenceHelpList div span{' +
-        'margin:10px;' +
-        'padding: 5px;' +
-        '}\r\n' +
-        '.omniSeqenceHelpList div:nth-child(2n){' +
-        'background-color: hsla(0, 0%, 70%, 0.9);' +
-        'border-radius: 5px 5px 5px 5px;' +
-        'color:hsl(0,0%,0%);' +
-        '}\r\n' +
-        '' +
-        '</style>';//taken from jquery api focus
 var keydownListener = function(event) {
     var focusedElement = document.activeElement.tagName.toUpperCase();
     if (focusedElement != 'INPUT' && focusedElement != 'TEXTAREA') {
@@ -105,12 +64,11 @@ var bindSequences = function(omniSequences) {
     });
 
     $.each(shortcutsMap, function(shortcutKey, shortcut) {
-        var omniSequenceHelpItem = $("<div><span>" + shortcutKey + "</span><span>"+shortcut.shortcutFunction +"</span><span>" + shortcut.matchers+ "</span></div>");
+        var omniSequenceHelpItem = $("<div><span>" + shortcutKey + "</span><span>" + shortcut.shortcutFunction + "</span><span>" + shortcut.matchers + "</span></div>");
         omniSequenceHelpList.append(omniSequenceHelpItem);
     });
 
     $(window).unbind('keydown.omnisequences');
-    $("body").append($(omniSequenceCustomStyle));
     $(window).bind('keydown.omnisequences', keydownListener);
 };
 
@@ -136,7 +94,7 @@ var getLongestMatchingApplyToUrl = function(applyToUrls) {
 var isMatchingDontApplyToUrl = function(dontApplyToUrls) {
     var currentLocation = window.location.href;
     if (dontApplyToUrls == null || dontApplyToUrls.length == 0)
-    var dontApply = false;
+        var dontApply = false;
     $.each(dontApplyToUrls, function(index, dontApplyToUrl) {
         var dontApplyToUrlForRegex = dontApplyToUrl.replace(/\*/g, '.*');
         var urlRegex = new RegExp(dontApplyToUrlForRegex, 'i');
@@ -145,4 +103,9 @@ var isMatchingDontApplyToUrl = function(dontApplyToUrls) {
     return dontApply;
 }
 
+var addOmniSequencesStyle = function(cssResourcePath) {
+    $("body").append($("<link>", {href:cssResourcePath,rel:"stylesheet"}))
+};
+
 self.port.on('bind-sequences', bindSequences);
+self.port.on('add-omnisequences-style', addOmniSequencesStyle);
