@@ -1,9 +1,10 @@
 {
     "name": "omnisequences",
-    "license": "MPL 1.1/GPL 2.0/LGPL 2.1", 
-    "author": "ragavanspd@gmail.com", 
-    "version": "1.1.8",
+    "license": "MPL 1.1/GPL 2.0/LGPL 2.1",
+    "author": "ragavanspd@gmail.com",
+    "version": "1.1.9",
     "fullName": "omnisequences",
-    "id": "jid1-Ep2FLBNPFVj5iQ", 
-    "description": "Omnisequences are keyboard sequences (inspired by google shortcuts) which you can customize - This aint your grandma's shortcuts. This is accessible from 'add-on bar'."
+    "id": "jid1-Ep2FLBNPFVj5iQ",
+    "description": "Omnisequences are keyboard sequences (inspired by google shortcuts) which you can customize. The omnisequences can be configured through the icon in 'add-on bar'.",
+    "homepage" : "https://github.com/padwan-ragavan/omnisequences"
 }

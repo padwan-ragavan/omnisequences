@@ -9,28 +9,30 @@
     border-radius: 5px 5px 5px 5px;
     color: hsl(120, 50%, 60%);
     font-weight: bolder;
-    box-shadow: 0 0 6px hsl(0, 0%, 80%), 0 0 5px 1024px hsla(0, 0%, 0%, 0.6);
+    box-shadow: 0 0 6px hsl(0, 0%, 80%), 0 0 5px 1440px hsla(0, 0%, 0%, 0.6);
     position: fixed;
     top: 2%;
     left: 1%;
-    font-size: 16px;
+    font-size: 13px;
     display: none;
     z-index: 999;
-    width:70%;
 }
 
 .omniSequenceHelpHeading {
     color: white;
     text-shadow: 1px 1px 1px hsl(240, 70%, 20%);
-    margin-bottom: 5px;
-    padding: 5px;
-    font-size: 1.2em;
+    margin-bottom: 2px;
 }
 
 .omniSequenceHelpHeading > div {
     float: left;
     margin: 5px;
     padding: 3px;
+}
+
+.omniSequenceHelpHeading > div:nth-child(2) {
+    float: left;
+    padding-left: 50px;
 }
 
 .omniSequenceHelpHeading > div:nth-child(3n) {
@@ -44,7 +46,6 @@
     float: none;
     margin: 0px;
     padding:0px;
-    background-color: blue;
 }
 
 .omniSequenceHelpHeading{
@@ -54,13 +55,14 @@
 
 .omniSeqenceHelpList div div {
     text-align: left;
-    margin: 10px;
+    font-family: "courier new",monospace,monotype;
+    margin: 2px;
     padding: 2px;
 }
 
 .omniSeqenceHelpList div div:nth-child(4n + 1) {
     float: left;
-    text-align: center !important;
+    text-align: center;
     width: 50px;
 }
 
@@ -82,6 +84,5 @@
 
 .omniSeqenceHelpList > div:nth-child(2n - 1) {
     background-color: hsla(0, 0%, 70%, 0.9);
-    /*border-radius: 10px 10px 10px 10px;*/
     color: hsl(0, 0%, 0%);
 }
