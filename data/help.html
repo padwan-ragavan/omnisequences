@@ -6,7 +6,8 @@
         window.onload = function() {
             var validEntryPoint = document.getElementById("validEntryPoint").value;
             if (validEntryPoint == "false") {
-                document.getElementsByTagName("body")[0].innerHTML = "right click the widget in the addon panel for options";
+                var textNode = document.createTextNode("right click the widget in the addon panel for options");
+                document.getElementsByTagName("body")[0].appendChild(textNode);
             }
         };
     </script>
