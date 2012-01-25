@@ -12,6 +12,8 @@ this.addEventListener('click', function(event) {
 
 self.port.on('keys-captured', function(keysCaptured) {
     keysCaptured = keysCaptured.toLowerCase();
-    if (/\w+/.test(keysCaptured) || keysCaptured.length==0)
-        document.getElementById("keysCaptured").innerHTML = keysCaptured;
+    if (/\w+/.test(keysCaptured) || keysCaptured.length==0){
+        var textNode = document.createTextNode(keysCaptured);
+        document.getElementById("keysCaptured").appendChild(textNode);
+    }
 });
