@@ -43,7 +43,7 @@ var bindSequences = function(omniSequences) {
     functionData = omniSequences.functionData;
     if (!functionData || !rules) return;
 
-    var omniSequencesHelpHeading = $("<div>", {class:"omniSequenceHelpHeading"})
+    var omniSequencesHelpHeading = $("<div>", {class:"omniSequenceHelpHeading",style:"display:none;"})
             .append($("<div>").text("Sequence"))
             .append($("<div>").text("Function"))
             .append($("<div>").text("Matchers"))
