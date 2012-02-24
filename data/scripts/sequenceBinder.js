@@ -11,6 +11,9 @@ var keydownListener = function(event) {
             $(".omniSequenceHelp").hide();
         } else {
             keysPressed += getStringFromKeyCode(event.which);
+            if(areFunctionKeysPressed(event)){
+                keysPressed = '';
+            }
         }
         if (shortcutsMap[keysPressed]) {
             try {
@@ -117,6 +120,11 @@ var isMatchingDontApplyToUrl = function(dontApplyToUrls) {
 
 var addOmniSequencesStyle = function(cssResourcePath) {
     $("body").append($("<link>", {href:cssResourcePath,rel:"stylesheet"}))
+};
+
+
+var areFunctionKeysPressed = function(event){
+    return event.altKey || event.ctrlKey || event.metaKey;
 };
 
 self.port.on('bind-sequences', bindSequences);
