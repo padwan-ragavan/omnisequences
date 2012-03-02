@@ -83,8 +83,8 @@ var bindSequences = function(omniSequences) {
         omniSequenceHelpList.append(omniSequenceHelpItem);
     });
 
-    $(window).unbind('keydown.omnisequences');
-    $(window).bind('keydown.omnisequences', keydownListener);
+    $(window).off('keydown.omnisequences');
+    $(window).on('keydown.omnisequences', keydownListener);
 };
 
 var isShortcutNewOrMatchingUrlLongerThanPrevious = function(shortcutKey, longestMatchingApplyToUrl) {
