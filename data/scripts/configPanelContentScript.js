@@ -285,7 +285,7 @@ $("#save").bind('click', saveShortcuts);
 $("#addNewRuleSet").bind('click', addNewRuleSet);
 $(".deleteUrlButton").live('click', deleteUrlPatten);
 $(".helpButton").bind('click', loadHelpPage);
-$(".restoreDefault").bind('click', restoreDefaults);
+$("#restoreDefault").bind('click', restoreDefaults);
 $("#exit").bind('click', function() {
     self.port.emit('exit');
 });

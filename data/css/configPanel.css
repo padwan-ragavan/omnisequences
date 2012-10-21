@@ -54,7 +54,7 @@
     margin-left: 7px;
     border: none;
     border-radius: 3px;
-    box-shadow: 1px;
+    box-shadow: 1px 0px;
     margin-top: 3px;
 }
 
@@ -72,6 +72,7 @@ body {
     background-color: #2981E4;
     border: medium none;
     font-weight: bold;
+    cursor: pointer;
     color: hsl(0, 0%, 100%);
     text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
     border-radius: 6px 6px 6px 6px;
@@ -183,7 +184,7 @@ input:focus {
 
 #addNewRuleSet {
     position: fixed;
-    bottom: 7%;
+    bottom: 9%;
     right: 1%;
 }
 
@@ -192,6 +193,7 @@ input:focus {
     background-color: hsl(0, 50%, 60%);
     border: medium none;
     font-size: smaller;
+    cursor: pointer;
     text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.25);
@@ -211,7 +213,7 @@ input:focus {
     border-radius: 30px;
     background-color: hsl(180,30%,40%);
     text-shadow: 0 0px 3px hsl(120, 20%, 90%);
-    cursor: default;
+    cursor: pointer;
     height: 30px;
     width: 30px;
     padding: 15px;
@@ -232,7 +234,7 @@ input:focus {
     box-shadow: 0 0px 3px rgba(0, 0, 0, 0.6) inset;
 }
 
-.restoreDefault {
+.grayButton {
     background-color: hsl(180,30%,40%);
     border: medium none;
     font-weight: bold;
@@ -242,18 +244,28 @@ input:focus {
     border-bottom: 1px solid rgba(0, 0, 0, 0.25);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
     position: fixed;
-    top: 20%;
-    right: 0%;
     padding: 5px 10px;
-    cursor: default;
+    cursor: pointer;
     margin: 5px;
 }
 
-.restoreDefault:hover {
+.grayButton:hover {
     background-color: hsl(180,40%,30%);
 }
 
-.restoreDefault:active {
+.grayButton:active {
     background-color: hsl(180,40%,30%);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) inset;
+}
+#restoreDefault {
+    top: 20%;
+    right: 0%;
+}
+#import {
+    top: 40%;
+    right: 75px;
+}
+#export {
+    top: 40%;
+    right: 0%;
 }
