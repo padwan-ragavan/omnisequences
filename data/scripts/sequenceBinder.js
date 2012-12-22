@@ -111,12 +111,12 @@ var isMatchingDontApplyToUrl = function(dontApplyToUrls) {
     if (dontApplyToUrls == null || dontApplyToUrls.length == 0)
         var dontApply = false;
     $.each(dontApplyToUrls, function(index, dontApplyToUrl) {
-        var dontApplyToUrlForRegex = dontApplyToUrl.replace(/\*/g, '.*');
+        var dontApplyToUrlForRegex = dontApplyToUrl.replace( /\*/g , '.*');
         var urlRegex = new RegExp(dontApplyToUrlForRegex, 'i');
         dontApply = dontApply || urlRegex.test(currentLocation);
     });
     return dontApply;
-}
+};
 
 var addOmniSequencesStyle = function(cssResourcePath) {
     $("body").append($("<link>", {href:cssResourcePath,rel:"stylesheet"}))

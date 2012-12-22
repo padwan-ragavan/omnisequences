@@ -270,22 +270,71 @@ var restoreDefaults = function() {
         self.port.emit('restore-defaults');
 };
 
+var restoreDefaults = function() {
+    var restoreDefaults = confirm("Restore Default", "Are you sure you want to restore defaults? All your custom functions, rules will be lost?");
+    if (restoreDefaults)
+        self.port.emit('restore-defaults');
+};
+
+var showExportDialog = function (omnisequences) {
+    $("#exportSequenceDialog").show();
+    $("#exportSequenceDialog").dialog({ position: { at: 'center-' + ($(window).width() / 2) + ' center', of: "#export"} });
+    $("#exportSequenceDialog").dialog('open');
+    var rules = _.map(omnisequences.rules, function (rule) { return {name: rule.name}; });
+    $("#exportSequenceList").jqGrid('setGridParam', { data: rules}).trigger('reloadGrid');
+};
+
+self.port.on('show-export-dialog', showExportDialog);
+
+var exportSequences = function () {
+    self.port.emit('get-omnisequences', { callback: 'show-export-dialog'});
+};
+
 self.port.on('show-shortcuts', showShortcuts);
 
-$(".functionName").live('blur.functionNameModified', updateFunctionList);
-$(".key1").live('keydown.key1Changed', focusNextInputField);
-$(".key2").live('keydown.key2Changed', focusNextInputField);
-$(".key1").live('focus.key1Changed', clearInputField);
-$(".key2").live('focus.key2Changed', clearInputField);
-$(".addUrlPattern").live('click.addUrlPattern', addUrlPattern);
-$(".addNewSequence").live('click', addNewSequence);
-$("#validEntryPoint").val("true");
-$("#addNewFunction").bind('click', addNewFunction);
-$("#save").bind('click', saveShortcuts);
-$("#addNewRuleSet").bind('click', addNewRuleSet);
-$(".deleteUrlButton").live('click', deleteUrlPatten);
-$(".helpButton").bind('click', loadHelpPage);
-$("#restoreDefault").bind('click', restoreDefaults);
-$("#exit").bind('click', function() {
-    self.port.emit('exit');
+
+$(function () {
+    $(".functionName").on('blur.functionNameModified', updateFunctionList);
+    $(".key1").on('keydown.key1Changed', focusNextInputField);
+    $(".key2").on('keydown.key2Changed', focusNextInputField);
+    $(".key1").on('focus.key1Changed', clearInputField);
+    $(".key2").on('focus.key2Changed', clearInputField);
+    $(".addUrlPattern").on('click.addUrlPattern', addUrlPattern);
+    $(".addNewSequence").on('click', addNewSequence);
+    $("#validEntryPoint").val("true");
+    $("#addNewFunction").on('click', addNewFunction);
+    $("#save").on('click', saveShortcuts);
+    $("#addNewRuleSet").on('click', addNewRuleSet);
+    $(".deleteUrlButton").on('click', deleteUrlPatten);
+    $(".helpButton").on('click', loadHelpPage);
+    $("#restoreDefault").on('click', restoreDefaults);
+    $("#export").on('click', exportSequences);
+    $("#exit").on('click', function () {
+        self.port.emit('exit');
+    });
+    $("#exportSequenceDialog").dialog({
+        title: 'Export Sequences',
+        width: 400,
+        autoOpen: false,
+        modal: true,
+        closeText: 'close',
+        buttons: {
+            'Export': function () {
+                var grid = $("#exportSequenceList");
+                var selectedRowIds = grid.jqGrid('getGridParam', 'selarrrow');
+                var selectedRules = _.map(selectedRowIds, function (rowId) {
+                    return grid.jqGrid('getRowData', rowId);
+                });
+                self.port.emit('export-omnisequence', selectedRules);
+                $("#exportSequenceDialog").dialog('close');
+            }
+        }
+    });
+    $("#exportSequenceList").jqGrid({
+        datatype: 'local',
+        multiselect: true,
+        colNames: ['Rule Name'],
+        colModel: [{ name: 'name', index: 'name'}],
+        width: 350
+    });
 });

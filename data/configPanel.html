@@ -1,6 +1,7 @@
 <html>
 <head>
     <link href="css/configPanel.css" rel="stylesheet"/>
+    <link href="css/jquery-ui-1.9.2.custom.min.css" rel="stylesheet"/>
     <script type="text/javascript">
         window.onload = function() {
             var validEntryPoint = document.getElementById("validEntryPoint").value;
@@ -53,8 +54,10 @@
 <div class="grayButton" id="export">export</div>
 <div class="grayButton" id="import">import</div>
 <div class="grayButton" id="restoreDefault">restore defaults</div>
-<div id="ruleSetContainer"></div>
-
+    <div id="ruleSetContainer"></div>
+    <div id="exportSequenceDialog">
+            <table id="exportSequenceList"></table>
+    </div>
 <input type="button" value="add New Rule Set" class="blueButton addNewRuleSet" id="addNewRuleSet"/>
 <input type="button" value="save" class="blueButton exitButton" id="save"/>
 <input type="button" value="exit" class="blueButton exitButton" id="exit"/>
