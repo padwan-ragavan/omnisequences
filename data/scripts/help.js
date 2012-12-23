@@ -145,10 +145,10 @@ var createPatternDemo = function() {
     }, delay);
 };
 
-$(".key1").live('keyup.key1Changed', focusNextInputField);
-$(".key2").live('keyup.key2Changed', focusNextInputField);
-$(".key1").live('focus.key1Changed', clearInputField);
-$(".key2").live('focus.key2Changed', clearInputField);
+$(document).on('keyup.key1Changed',".key1", focusNextInputField);
+$(document).on('keyup.key2Changed',".key2", focusNextInputField);
+$(document).on('focus.key1Changed',".key1", clearInputField);
+$(document).on('focus.key2Changed',".key2", clearInputField);
 $("#backButton").bind("click.backButton", goBack);
 $("#createSequence").bind('click', createSequenceDemo);
 $("#createFunction").bind('click', createFunctionDemo);

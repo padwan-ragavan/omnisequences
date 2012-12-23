@@ -294,18 +294,20 @@ self.port.on('show-shortcuts', showShortcuts);
 
 
 $(function () {
-    $(".functionName").on('blur.functionNameModified', updateFunctionList);
-    $(".key1").on('keydown.key1Changed', focusNextInputField);
-    $(".key2").on('keydown.key2Changed', focusNextInputField);
-    $(".key1").on('focus.key1Changed', clearInputField);
-    $(".key2").on('focus.key2Changed', clearInputField);
-    $(".addUrlPattern").on('click.addUrlPattern', addUrlPattern);
-    $(".addNewSequence").on('click', addNewSequence);
+    $(".functionsContainer").on('blur.functionNameModified', ".functionName", updateFunctionList);
+    $("#ruleSetContainer").on('keydown.key1Changed', ".key1", focusNextInputField);
+    $("#ruleSetContainer").on('keydown.key2Changed', ".key2", focusNextInputField);
+    $("#ruleSetContainer").on('focus.key1Changed', ".key1", clearInputField);
+    $("#ruleSetContainer").on('focus.key2Changed', ".key2", clearInputField);
+    $("#ruleSetContainer").on('click.addUrlPattern', ".addUrlPattern", addUrlPattern);
+    $("#ruleSetContainer").on('click', ".addNewSequence", addNewSequence);
+    $("#ruleSetContainer").on('click', ".deleteUrlButton", deleteUrlPatten);
+
     $("#validEntryPoint").val("true");
+
     $("#addNewFunction").on('click', addNewFunction);
     $("#save").on('click', saveShortcuts);
     $("#addNewRuleSet").on('click', addNewRuleSet);
-    $(".deleteUrlButton").on('click', deleteUrlPatten);
     $(".helpButton").on('click', loadHelpPage);
     $("#restoreDefault").on('click', restoreDefaults);
     $("#export").on('click', exportSequences);
