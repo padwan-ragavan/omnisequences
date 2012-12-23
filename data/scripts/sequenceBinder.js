@@ -51,12 +51,12 @@ var bindSequences = function(omniSequences) {
             .append($("<div>").text("Function"))
             .append($("<div>").text("Matchers"))
             .append($("<div>"));
-    var omniSequenceHelpList = $("<div>", {class:"omniSeqenceHelpList"})
+    var omniSequenceHelpList = $("<div>", { class: "omniSeqenceHelpList" });
     var omniSequenceHelpDiv = $("<div>", {class:"omniSequenceHelp"})
             .append(omniSequencesHelpHeading)
             .append(omniSequenceHelpList);
     $("body").append(omniSequenceHelpDiv);
-    var omniSequenceHelpList = $(".omniSeqenceHelpList");
+    omniSequenceHelpList = $(".omniSeqenceHelpList");
     $.each(rules, function(index, rule) {
         var longestMatchingApplyToUrl = getLongestMatchingApplyToUrl(rule.applyTo);
         if (longestMatchingApplyToUrl && !isMatchingDontApplyToUrl(rule.dontApplyTo)) {

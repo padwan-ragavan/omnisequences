@@ -323,7 +323,7 @@ $(function () {
                 var grid = $("#exportSequenceList");
                 var selectedRowIds = grid.jqGrid('getGridParam', 'selarrrow');
                 var selectedRules = _.map(selectedRowIds, function (rowId) {
-                    return grid.jqGrid('getRowData', rowId);
+                    return grid.jqGrid('getRowData', rowId).name;
                 });
                 self.port.emit('export-omnisequence', selectedRules);
                 $("#exportSequenceDialog").dialog('close');
