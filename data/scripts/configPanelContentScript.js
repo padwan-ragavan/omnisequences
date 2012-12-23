@@ -252,6 +252,10 @@ var deleteUrlPatten = function(event) {
     deleteUrlButton.remove();
 };
 
+var deleteRule = function (event) {
+    $(event.target).closest(".rulesContainer").remove();
+};
+
 var disableButton = function(buttonId) {
     $("#" + buttonId).attr('disabled', 'disabled');
 };
@@ -306,6 +310,7 @@ $(function () {
     $("#ruleSetContainer").on('click.addUrlPattern', ".addUrlPattern", addUrlPattern);
     $("#ruleSetContainer").on('click', ".addNewSequence", addNewSequence);
     $("#ruleSetContainer").on('click', ".deleteUrlButton", deleteUrlPatten);
+    $("#ruleSetContainer").on('click', ".deleteRule", deleteRule);
 
     $("#validEntryPoint").val("true");
 

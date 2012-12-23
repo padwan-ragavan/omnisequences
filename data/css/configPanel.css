@@ -269,3 +269,13 @@ input:focus {
     top: 40%;
     right: 0%;
 }
+.deleteRule {
+    float: right;
+    padding-right: 6px;
+    color: red;
+    cursor: pointer;
+}
+.deleteRule:hover {
+    top: 2px;
+    text-shadow: 1px 1px;
+}
