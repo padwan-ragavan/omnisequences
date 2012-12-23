@@ -290,6 +290,10 @@ var exportSequences = function () {
     self.port.emit('get-omnisequences', { callback: 'show-export-dialog'});
 };
 
+var importSequences = function () {
+    self.port.emit('import-omnisequences');
+};
+
 self.port.on('show-shortcuts', showShortcuts);
 
 
@@ -311,6 +315,7 @@ $(function () {
     $(".helpButton").on('click', loadHelpPage);
     $("#restoreDefault").on('click', restoreDefaults);
     $("#export").on('click', exportSequences);
+    $("#import").on('click', importSequences);
     $("#exit").on('click', function () {
         self.port.emit('exit');
     });
@@ -328,7 +333,6 @@ $(function () {
                     return grid.jqGrid('getRowData', rowId).name;
                 });
                 self.port.emit('export-omnisequence', selectedRules);
-                $("#exportSequenceDialog").dialog('close');
             }
         }
     });
