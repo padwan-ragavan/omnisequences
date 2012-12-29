@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>What are omnisequences? - omnisequences</title>
+  <title>What is a sequence? - omnisequences</title>
   <meta name="author" content="Ragavan Govindarajan">
 
   
-  <meta name="description" content="tldr; mozilla addon to have gmail like shortcuts for the entire web. Omnisequences are keyboard sequences which you can customize.Are you one of &hellip;">
+  <meta name="description" content="A sequence is key1[key2] + jquery_matchers + function_to_invoke.The arguments to the function_to_invoke would be the jquery elements matched by &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://padwan-ragavan.github.com/omnisequences/blog/2012/12/29/what-are-omnisequences/">
+  <link rel="canonical" href="http://padwan-ragavan.github.com/omnisequences/blog/2012/12/29/what-is-a-sequence/">
   <link href="/omnisequences/favicon.png" rel="icon">
   <link href="/omnisequences/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/omnisequences/javascripts/modernizr-2.0.js"></script>
@@ -67,7 +67,7 @@
   
   <header>
     
-      <h1 class="entry-title">What Are Omnisequences?</h1>
+      <h1 class="entry-title">What Is a Sequence?</h1>
     
     
       <p class="meta">
@@ -83,37 +83,34 @@
   
 
 
-<time datetime="2012-12-29T11:11:00+05:30" pubdate data-updated="true">Dec 29<span>th</span>, 2012</time>
+<time datetime="2012-12-29T14:05:00+05:30" pubdate data-updated="true">Dec 29<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><strong>tldr; mozilla <a href="https://addons.mozilla.org/en-US/firefox/addon/omnisequences/" title="omnisequences">addon</a> to have gmail like shortcuts for the entire web.</strong></p>
+<div class="entry-content"><p>A sequence is <code>key1[key2]</code> + <code>jquery_matchers</code> + <code>function_to_invoke</code>.The arguments to the <code>function_to_invoke</code> would be the jquery elements matched by <code>jquery_matchers</code>.</p>
 
-<p>Omnisequences are keyboard sequences which you can customize.Are you one of those who type <code>gi</code> and expect to be taken to home page of a site or press <code>j</code>, <code>k</code> to navigatebetween the posts ? If &#8216;yes&#8217; this addon is for you, you can download it and start using.Did you say &#8216;no&#8217;? dont worry you are about to find out an awesome way to navigate web sites using keyboard without mouse.Keyboard sequences are different from keyboard shortcuts, lets take keyboard sequence <code>gi</code>, you type it by typing the first key <code>g</code> followed by second key <code>i</code>, the catch is no need to hold key <code>g</code> while typing the key <code>i</code>.Can there single key keyboard sequences? yes.You can even have a keyboard sequence <code>o</code> to open the current post/link you are in.This is inspired by google shortcuts.</p>
+<p>When we have a sequence defined as  <code>o</code>  + <code>.elementInFocus</code> + <code>openFirstLink</code></p>
 
-<h2>What can I do with omnisequences?</h2>
+<figure class='code'><figcaption><span>openFirstLink  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">function</span><span class="p">(</span><span class="nx">matches</span><span class="p">){</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">firstLinkInside</span> <span class="o">=</span> <span class="nx">matches</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="k">if</span><span class="p">(</span><span class="nx">firstLinkInside</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span><span class="mi">0</span><span class="p">){</span>
+</span><span class='line'>      <span class="nx">firstLinkInside</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">click</span><span class="p">();</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p> You can sequence anything that you can do manually in a website. Examples would be you can have a sequence to</p>
 
-<ul>
-<li>navigate within the dom on identifiers - j,k,n,p</li>
-<li>navigate across a site, go one level up, go to home page - u,gi</li>
-<li>jump across sites, open new tab</li>
-<li>jump to a particular post based on id - you can have a prompt inside the function to get input from
-user.</li>
-<li>attach new elements/styles/scripts to a page - you can attach jquery on the fly to a page.</li>
-<li>let your imagination rule the world.</li>
-</ul>
-
-
-<h2>Where can I get it ?</h2>
-
-<p>You can download from <a href="https://addons.mozilla.org/en-US/firefox/addon/omnisequences/" title="omnisequences">mozilla omnisequenences addon page</a>.</p>
-
-<p>You can find omnisequence rules here <a href="https://gist.github.com/search?q=omnisequence" title="share omnisequence">gists</a>, which you can import.</p>
+<p>everytime we press <code>o</code> (and the focus is not on an input element), it call <code>openFirstLink(jQuery('.elementInFocus'))</code>.</p>
 </div>
 
 
@@ -136,7 +133,7 @@ user.</li>
   
 
 
-<time datetime="2012-12-29T11:11:00+05:30" pubdate data-updated="true">Dec 29<span>th</span>, 2012</time>
+<time datetime="2012-12-29T14:05:00+05:30" pubdate data-updated="true">Dec 29<span>th</span>, 2012</time>
       
 
 
@@ -144,7 +141,7 @@ user.</li>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://padwan-ragavan.github.com/omnisequences/blog/2012/12/29/what-are-omnisequences/" data-via="" data-counturl="http://padwan-ragavan.github.com/omnisequences/blog/2012/12/29/what-are-omnisequences/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://padwan-ragavan.github.com/omnisequences/blog/2012/12/29/what-is-a-sequence/" data-via="" data-counturl="http://padwan-ragavan.github.com/omnisequences/blog/2012/12/29/what-is-a-sequence/" >Tweet</a>
   
   
   
@@ -153,8 +150,8 @@ user.</li>
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/omnisequences/blog/2012/12/29/how-does-it-work/" title="Previous Post: How does it work?">&laquo; How does it work?</a>
       
-        <a class="basic-alignment right" href="/omnisequences/blog/2012/12/29/how-does-it-work/" title="Next Post: How does it work?">How does it work? &raquo;</a>
       
     </p>
   </footer>
