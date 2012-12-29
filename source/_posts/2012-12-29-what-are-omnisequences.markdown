@@ -24,10 +24,10 @@ user.
 
 ## Where can I get it ?
 
-You can download from [mozilla omnisequenences addon page][omnisequenences].
+You can download from __[mozilla omnisequenences addon page][omnisequenences]__.
 
 
-You can find omnisequence rules here [gists][share-omnisequenences], which you can import. 
+#### You can [discover more][share-omnisequenences] omnisequence rules [here][share-omnisequenences], which you can import. 
 
 [omnisequenences]:https://addons.mozilla.org/en-US/firefox/addon/omnisequences/ "omnisequences"	
 [share-omnisequenences]:https://gist.github.com/search?q=omnisequence "share omnisequence"	
