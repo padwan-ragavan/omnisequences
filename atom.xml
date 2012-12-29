@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[omnisequences]]></title>
+  <link href="http://padwan-ragavan.github.com/omnisequences/atom.xml" rel="self"/>
+  <link href="http://padwan-ragavan.github.com/omnisequences/"/>
+  <updated>2012-12-29T11:12:10+05:30</updated>
+  <id>http://padwan-ragavan.github.com/omnisequences/</id>
+  <author>
+    <name><![CDATA[Ragavan Govindarajan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[What are omnisequences?]]></title>
+    <link href="http://padwan-ragavan.github.com/omnisequences/blog/2012/12/29/what-are-omnisequences/"/>
+    <updated>2012-12-29T11:11:00+05:30</updated>
+    <id>http://padwan-ragavan.github.com/omnisequences/blog/2012/12/29/what-are-omnisequences</id>
+    <content type="html"><![CDATA[<p><strong>tldr; mozilla <a href="https://addons.mozilla.org/en-US/firefox/addon/omnisequences/" title="omnisequences">addon</a> to have gmail like shortcuts for the entire web.</strong></p>
+
+<p>Omnisequences are keyboard sequences which you can customize.Are you one of those who type <code>gi</code> and expect to be taken to home page of a site or press <code>j</code>, <code>k</code> to navigatebetween the posts ? If &#8216;yes&#8217; this addon is for you, you can download it and start using.Did you say &#8216;no&#8217;? dont worry you are about to find out an awesome way to navigate web sites using keyboard without mouse.Keyboard sequences are different from keyboard shortcuts, lets take keyboard sequence <code>gi</code>, you type it by typing the first key <code>g</code> followed by second key <code>i</code>, the catch is no need to hold key <code>g</code> while typing the key <code>i</code>.Can there single key keyboard sequences? yes.You can even have a keyboard sequence <code>o</code> to open the current post/link you are in.This is inspired by google shortcuts.</p>
+
+<h2>What can I do with omnisequences?</h2>
+
+<p> You can sequence anything that you can do manually in a website. Examples would be you can have a sequence to</p>
+
+<ul>
+<li>navigate within the dom on identifiers - j,k,n,p</li>
+<li>navigate across a site, go one level up, go to home page - u,gi</li>
+<li>jump across sites, open new tab</li>
+<li>jump to a particular post based on id - you can have a prompt inside the function to get input from
+user.</li>
+<li>attach new elements/styles/scripts to a page - you can attach jquery on the fly to a page.</li>
+<li>let your imagination rule the world.</li>
+</ul>
+
+
+<h2>Where can I get it ?</h2>
+
+<p>You can download from <a href="https://addons.mozilla.org/en-US/firefox/addon/omnisequences/" title="omnisequences">mozilla omnisequenences addon page</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>
