@@ -18,4 +18,4 @@ user.
 
 You can download from [mozilla omnisequenences addon page][omnisequenences].
 
-[omnisequenences]:https://addons.mozilla.org/en-US/firefox/addon/omnisequences/ "omnisequences"	s
+[omnisequenences]:https://addons.mozilla.org/en-US/firefox/addon/omnisequences/ "omnisequences"

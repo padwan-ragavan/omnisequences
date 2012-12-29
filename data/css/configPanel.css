@@ -271,8 +271,9 @@ input:focus {
 }
 .deleteRule {
     float: right;
-    padding-right: 6px;
     color: red;
+    position: relative;
+    right: 6px;
     cursor: pointer;
 }
 .deleteRule:hover {
