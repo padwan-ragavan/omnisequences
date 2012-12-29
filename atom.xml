@@ -4,7 +4,7 @@
   <title><![CDATA[omnisequences]]></title>
   <link href="http://padwan-ragavan.github.com/omnisequences/atom.xml" rel="self"/>
   <link href="http://padwan-ragavan.github.com/omnisequences/"/>
-  <updated>2012-12-29T14:59:08+05:30</updated>
+  <updated>2012-12-29T15:08:13+05:30</updated>
   <id>http://padwan-ragavan.github.com/omnisequences/</id>
   <author>
     <name><![CDATA[Ragavan Govindarajan]]></name>
@@ -81,9 +81,9 @@ user.</li>
 
 <h2>Where can I get it ?</h2>
 
-<p>You can download from <a href="https://addons.mozilla.org/en-US/firefox/addon/omnisequences/" title="omnisequences">mozilla omnisequenences addon page</a>.</p>
+<p>You can download from <strong><a href="https://addons.mozilla.org/en-US/firefox/addon/omnisequences/" title="omnisequences">mozilla omnisequenences addon page</a></strong>.</p>
 
-<p>You can find omnisequence rules here <a href="https://gist.github.com/search?q=omnisequence" title="share omnisequence">gists</a>, which you can import.</p>
+<h4>You can <a href="https://gist.github.com/search?q=omnisequence" title="share omnisequence">discover more</a> omnisequence rules <a href="https://gist.github.com/search?q=omnisequence" title="share omnisequence">here</a>, which you can import.</h4>
 ]]></content>
   </entry>
   
