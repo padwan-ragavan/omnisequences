@@ -119,7 +119,7 @@ var isMatchingDontApplyToUrl = function(dontApplyToUrls) {
 };
 
 var addOmniSequencesStyle = function(cssResourcePath) {
-    $("body").append($("<link>", {href:cssResourcePath,rel:"stylesheet"}))
+    $("head").append($("<link>", { href: cssResourcePath, rel: "stylesheet", type: "text/css"}));
 };
 
 
